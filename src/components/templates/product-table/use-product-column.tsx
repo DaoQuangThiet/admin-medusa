@@ -80,6 +80,32 @@ const useProductTableColumn = ({ setTileView, setListView, showList }) => {
         },
       },
       {
+        Header: "Vendor",
+        accessor: "vendor",
+        Cell: ({ row: { original } }) => {
+          return <div>{original?.vendor?.store_name || "-"}</div>
+        },
+      },
+      {
+        Header: "Shop",
+        accessor: "Shop",
+        Cell: ({ row: { original } }) => {
+          if (!original?.vendor?.shop_url) {
+            return <>-</>
+          }
+
+          return (
+            <a
+              href={original?.vendor?.shop_url}
+              target="_blank"
+              style={{ color: "blue", textDecoration: "underline" }}
+            >
+              {original?.vendor?.shop_url || ""}
+            </a>
+          )
+        },
+      },
+      {
         Header: "Collection",
         accessor: "collection", // accessor is the "key" in the data
         Cell: ({ cell: { value } }) => {

@@ -18,9 +18,9 @@ const DEFAULT_PAGE_SIZE = 15
 const DEFAULT_PAGE_SIZE_TILE_VIEW = 18
 
 const defaultQueryProps = {
-  fields: "id,title,thumbnail,status,handle,collection_id",
+  fields: "id,title,thumbnail,status,handle,collection_id,",
   expand:
-    "variants,options,variants.prices,variants.options,collection,tags,type,images",
+    "variants,options,variants.prices,variants.options,collection,tags,type,images,",
   is_giftcard: false,
 }
 
@@ -33,7 +33,7 @@ const ProductTable = () => {
   let hiddenColumns = ["sales_channel"]
   if (isFeatureEnabled("sales_channels")) {
     defaultQueryProps.expand =
-      "variants,options,variants.prices,variants.options,collection,tags,type,images,sales_channels"
+      "variants,options,variants.prices,variants.options,collection,tags,type,images,sales_channels,"
     hiddenColumns = []
   }
 
